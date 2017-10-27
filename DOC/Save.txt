@@ -7,5 +7,21 @@
 ------------------ INFOS GENERAL -----------------
 
 Nom de la classe : Save
+Classe mère : Thread
 
---------------------------------------------------
+SPecificités : Cette classe pourra envoyer des erreurs comme :
+- Fichier d'enregistrement introuvable
+- Fichier de style introuvable
+- Erreur de droit en écriture sur le fichier destination
+- Erreur d'écrire
+- Erreur lors de l'enregistrement de la sauvegarde
+
+-------------------- ATRIBUTS ----------------------
+
+int Timer # permettra de définir la fréquence d'enregistrement automatique (en seconde)
+
+-------------------- METHODES ----------------------
+
+Save (int Timer)
+Run()
+
