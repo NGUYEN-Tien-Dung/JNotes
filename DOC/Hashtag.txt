@@ -8,4 +8,15 @@
 
 Nom de la classe : Hashtag
 
---------------------------------------------------
+-------------------- ATRIBUTS --------------------
+
+Nom (private String)
+IdTab (private Vector<int>)
+
+-------------------- METHODE ---------------------
+
+Hashtag (String Nom, int Id)
+public void AddId (int...v)
+public void RemoveId (int...v)
+public int GetSize ()
+public String GetNom ()
