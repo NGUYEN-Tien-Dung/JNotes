@@ -1,0 +1,19 @@
+==================================================
+|                                                |
+|               METHODE DE IMPORT                |
+|                                                |
+==================================================
+
+------------------ INFOS GENERAL -----------------
+
+Nom de la classe : Import
+Classe mère : Thread
+
+-------------------- ATRIBUTS --------------------
+
+Path (private String) # direction du fichier d'enregistrement
+
+-------------------- METHODE ---------------------
+
+public String GetPath()
+public Document run() # type de retour est un objet de type Document parser (permet de parcourir un XML par ces balises)
