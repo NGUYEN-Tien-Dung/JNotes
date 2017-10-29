@@ -1,0 +1,25 @@
+==================================================
+|                                                |
+|                 METHODE DE NOTE                |
+|                                                |
+==================================================
+
+------------------ INFOS GENERAL -----------------
+
+Nom de la classe : Note
+
+-------------------- ATRIBUTS --------------------
+
+Id (private int)
+Text (private text)
+Hashtag (privte String[]) # par défaut "#undefined"
+
+-------------------- METHODE ---------------------
+
+public void Export (String type) # le string représentera le type d'export:
+	- format PDF : "PDF"
+	- format XML : "XML"
+	- format HTML : "HTML"
+public int getId() # récupérer l'id d'une note
+public text getText() # récupère le texte de la note sous forme de text
+public String getHashtag() # Accesseur pour le nom des # contenu dans la note
