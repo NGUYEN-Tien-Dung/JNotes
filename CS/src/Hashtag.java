@@ -28,7 +28,7 @@ public class Hashtag {
 	 * Accesseur de Nom
 	 * @return le nom du Hashtag
 	 */
-	public String getNom() {
+	public String GetNom() {
 		return Nom;
 	}
 	
@@ -36,15 +36,23 @@ public class Hashtag {
 	 * Accesseur de IdTab
 	 * @return le vecteur des id de notes ayant de Hashtag
 	 */
-	public Vector<Integer> getIdVect(){
+	public Vector<Integer> GetIdVect(){
 		return IdTab;
+	}
+	
+	
+	public Vector<String> GetIdVectVerbose(){
+		Vector<String> result = new Vector<String>();
+		// TODO Faire la conversion de vector<Integer> en Vector<String>
+		
+		return result;
 	}
 	
 	/**
 	 * 
 	 * @return Nombre de Note comportant ce Hashtag
 	 */
-	public int getSize() {
+	public int GetSize() {
 		return IdTab.size();
 	}
 	
@@ -58,4 +66,15 @@ public class Hashtag {
 		}
 	}
 	
+	/**
+	 * methode permettant de supprimer les note dont le Hashtag ne figure
+	 * dans la Note
+	 * @param v Id des Notes a supprimer du Hashtag
+	 */
+	public void RemoveId(int...v) {
+		for (int i=0;i<v.length;i++) {
+			IdTab.remove(v[i]);
+		}
+	}
+		
 }

@@ -20,4 +20,6 @@ public void AddId (int...v)
 public void RemoveId (int...v)
 public int GetSize ()
 public String GetNom ()
-public Vector<Integer> getIdVect()
+public Vector<Integer> GetIdVect()
+public Vector<String> GetIdVectVerbose() # identique à IdVect, mais renvoi un vecteur
+						avec les titres des note, et nom les ID
