@@ -11,7 +11,7 @@ Nom de la classe : Hashtag
 -------------------- ATRIBUTS --------------------
 
 Nom (private String)
-IdTab (private Vector<int>)
+IdTab (private Vector<Integer>)
 
 -------------------- METHODE ---------------------
 
@@ -20,3 +20,4 @@ public void AddId (int...v)
 public void RemoveId (int...v)
 public int GetSize ()
 public String GetNom ()
+public Vector<Integer> getIdVect()
