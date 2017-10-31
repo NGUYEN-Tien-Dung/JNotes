@@ -1,0 +1,19 @@
+==================================================
+|                                                |
+|              METHODE DE CLASSEUR               |
+|                                                |
+==================================================
+
+------------------ INFOS GENERAL -----------------
+
+Nom de la classe : Classeur
+
+-------------------- ATRIBUTS --------------------
+
+Dico (private HashMap<Int,String>)
+
+-------------------- METHODE ---------------------
+
+HashMap (Document) # constructeur appeler par la classe Import à la fin du parsage
+public String getTitle(int) # récupère le titre d'une note par son id
+public Note getNot(int) # récupère une Note entière par son id

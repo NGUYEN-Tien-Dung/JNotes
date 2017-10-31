@@ -11,6 +11,7 @@ public class Hashtag {
 	private String Nom;
 	private Vector<Integer> IdTab; /* vecteur regroupant les identifiants de toutes
 	les Notes comportant ce Hashtag */
+	private Classeur classeur; // classeur comportant toutes les note et leur ID corespondante
 	
 	/**
 	 * 
@@ -28,7 +29,7 @@ public class Hashtag {
 	 * Accesseur de Nom
 	 * @return le nom du Hashtag
 	 */
-	public String GetNom() {
+	public String getNom() {
 		return Nom;
 	}
 	
@@ -36,14 +37,20 @@ public class Hashtag {
 	 * Accesseur de IdTab
 	 * @return le vecteur des id de notes ayant de Hashtag
 	 */
-	public Vector<Integer> GetIdVect(){
+	public Vector<Integer> getIdVect(){
 		return IdTab;
 	}
 	
-	
-	public Vector<String> GetIdVectVerbose(){
+	/**
+	 * 
+	 * @return vecteur des titre de notes comportant de hashtag
+	 */
+	public Vector<String> getIdVectVerbose(){
+		// vecteur des résultats verbeux des notes comportant ce hashtag
 		Vector<String> result = new Vector<String>();
-		// TODO Faire la conversion de vector<Integer> en Vector<String>
+		for (int i=0;i<IdTab.size();i++) {
+			result.add(classeur.getTitle(i));	
+		}
 		
 		return result;
 	}
@@ -52,7 +59,7 @@ public class Hashtag {
 	 * 
 	 * @return Nombre de Note comportant ce Hashtag
 	 */
-	public int GetSize() {
+	public int getSize() {
 		return IdTab.size();
 	}
 	

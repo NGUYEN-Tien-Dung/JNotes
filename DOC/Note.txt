@@ -11,6 +11,7 @@ Nom de la classe : Note
 -------------------- ATRIBUTS --------------------
 
 Id (private int)
+Tittle (private String)
 Text (private text)
 Hashtag (privte String[]) # par défaut "#undefined"
 
@@ -23,3 +24,4 @@ public void Export (String type) # le string représentera le type d'export:
 public int getId() # récupérer l'id d'une note
 public text getText() # récupère le texte de la note sous forme de text
 public String getHashtag() # Accesseur pour le nom des # contenu dans la note
+public String getTittle() # Accesseur du titre de la Note

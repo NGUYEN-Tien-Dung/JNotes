@@ -19,7 +19,7 @@ Hashtag (String Nom, int Id)
 public void AddId (int...v)
 public void RemoveId (int...v)
 public int GetSize ()
-public String GetNom ()
-public Vector<Integer> GetIdVect()
-public Vector<String> GetIdVectVerbose() # identique à IdVect, mais renvoi un vecteur
+public String getNom ()
+public Vector<Integer> getIdVect()
+public Vector<String> getIdVectVerbose() # identique à IdVect, mais renvoi un Vector
 						avec les titres des note, et nom les ID
