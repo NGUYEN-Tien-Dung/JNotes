@@ -26,3 +26,11 @@ on mettra une majuscule a chaque début de mot composant le nom
 Exemple :
 ne pas écrire : set_valeur()
 mais écrire : SetValeur()
+
+==================================================
+|                                                |
+|        CLASSE AJOUTER ULTERIEUREMENT           |
+|                                                |
+==================================================
+
+Classeur : Nicolas

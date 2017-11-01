@@ -1,5 +1,4 @@
 import java.util.HashMap;
-
 import org.w3c.dom.Document;
 
 public class Classeur {
