@@ -11,7 +11,9 @@ Nom de la classe : Hashtag
 -------------------- ATRIBUTS --------------------
 
 Nom (private String)
-IdTab (private Vector<Integer>)
+IdTab (private static Vector<Integer>)
+HashTagTab (private static Vector<Hastag>) # le passage en static permet de modifier la liste pour
+						toutes les instances de Hashtag en même temps
 
 -------------------- METHODE ---------------------
 

@@ -11,18 +11,21 @@ public class Hashtag {
 	private String Nom;
 	private Vector<Integer> IdTab; /* vecteur regroupant les identifiants de toutes
 	les Notes comportant ce Hashtag */
-	private Classeur classeur; // classeur comportant toutes les note et leur ID corespondante
+	private static Classeur classeur; // classeur comportant toutes les note et leur ID corespondante
+	private static Vector<Hashtag> HashTagTab = new Vector<Hashtag>(); /* Mettre l'attribut en static permet de motifier l'attribut de tout
+	les objet à chaque fois que l'attribut d'un objet est modifier	*/
 	
 	/**
-	 * 
 	 * @param NomHashtag : Nom du nouveau Hashtag à créer
 	 * @param IdNote : identifiant de la note initialisant ce hashtag (cad la première note
 	 * ou ce hashtag apparait)
 	 */
-	Hashtag (String NomHashtag, int IdNote){
+	Hashtag (String NomHashtag, int IdNote, Classeur clas){
 		Nom = NomHashtag;
+		classeur = clas;
 		IdTab = new Vector<Integer>(); // déclaration du Vector de int
 		IdTab.add(IdNote); // ajout de l'id de la note initiant ce hastag
+		HashTagTab.add(this);
 	}
 
 	/**
@@ -83,5 +86,22 @@ public class Hashtag {
 			IdTab.remove(v[i]);
 		}
 	}
+	
+	public String Infos(boolean Verbose) {
+		String result = "----------------- INFOS ------------------\n\n";
+		result = result + "Nom : " + this.getNom() + "\n";
+		result = result + "Note(s) : ";
+		if (Verbose = false) {
+			for (int i = 0; i<IdTab.size();i++) {
+				result =  result + String.valueOf(IdTab.get(i)) + "\t";
+			}
+		}else {
+			Vector<String> vect = this.getIdVectVerbose();
+			for (int i = 0; i<vect.size();i++) {
+				result =  result + vect.get(i) + "\t";
+			}
+		}
 		
+		return result;
+	}
 }
