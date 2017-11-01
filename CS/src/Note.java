@@ -9,7 +9,7 @@ public class Note {
 	/**
 	 * constructeur de Note
 	 */
-	Note (){
+	Note (int Id){
 		
 	}
 	

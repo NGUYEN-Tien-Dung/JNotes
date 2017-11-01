@@ -1,4 +1,9 @@
+import java.io.IOException;
 import java.util.Vector;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 /**
  * 
@@ -7,6 +12,8 @@ import java.util.Vector;
  */
 public class Hashtag {
 
+	protected static Logger logger = Logger.getLogger("Log"); // Fichier de Log pour suivie d'erreur et d'utilisation
+	private Handler fh;
 	private String Nom;
 	private Vector<Integer> IdTab; /* vecteur regroupant les identifiants de toutes
 	les Notes comportant ce Hashtag */
@@ -25,6 +32,15 @@ public class Hashtag {
 		IdTab = new Vector<Integer>(); // déclaration du Vector de int
 		IdTab.add(IdNote); // ajout de l'id de la note initiant ce hastag
 		HashTagTab.add(this);
+		// Création du fichier de log
+		 try {
+			fh = new FileHandler("Log.log");
+			fh.setFormatter(new SimpleFormatter());
+			logger.addHandler(fh);
+		} catch (SecurityException e) {
+		} catch (IOException e) {
+		}
+		
 	}
 
 	/**
@@ -113,4 +129,6 @@ public class Hashtag {
 		result = result + "\n------------------------------------------\n";
 		return result;
 	}
+	
+	
 }
