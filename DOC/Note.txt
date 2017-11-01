@@ -17,6 +17,7 @@ Hashtag (privte String[]) # par défaut "#undefined"
 
 -------------------- METHODE ---------------------
 
+
 public void Export (String type) # le string représentera le type d'export:
 	- format PDF : "PDF"
 	- format XML : "XML"

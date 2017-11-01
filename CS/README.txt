@@ -34,3 +34,13 @@ mais écrire : SetValeur()
 ==================================================
 
 Classeur : Nicolas
+
+==================================================
+|                                                |
+|                   DEBEUG                       |
+|                                                |
+==================================================
+
+- Ajouter l'écriture de log dans un fichier txt pour chaque appel de méthode
+et gestion d'erreur (permettra ensuite d'avoir un historique de l'utilisation
+et des erreur pour les analysés et optimiser)
