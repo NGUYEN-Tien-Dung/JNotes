@@ -12,7 +12,7 @@ import java.util.logging.SimpleFormatter;
  */
 public class Hashtag {
 
-	protected static Logger logger = Logger.getLogger("Log"); // Fichier de Log pour suivie d'erreur et d'utilisation
+	protected static Logger logger = Logger.getLogger("Log"); // Atribut permettant l'utilisation de logger extérieur (écrit dans une fichier séparer)
 	private Handler fh;
 	private String Nom;
 	private Vector<Integer> IdTab; /* vecteur regroupant les identifiants de toutes
@@ -34,13 +34,14 @@ public class Hashtag {
 		HashTagTab.add(this);
 		// Création du fichier de log
 		 try {
-			fh = new FileHandler("Log.log");
-			fh.setFormatter(new SimpleFormatter());
+			fh = new FileHandler("Log.log"); // cosntructeur du fichier de log (utile pour récupérer les utilisations)
+			fh.setFormatter(new SimpleFormatter()); // format du ficher de log --> text (pas de XML)
 			logger.addHandler(fh);
 		} catch (SecurityException e) {
+			logger.warning("Erreur fatale de sécurité Hashtag " + NomHashtag + " (Constructeur)");
 		} catch (IOException e) {
 		}
-		
+		logger.info("Hashtag créé : " + this.getNom() + "(" + IdNote + ")");
 	}
 
 	/**
@@ -91,8 +92,15 @@ public class Hashtag {
 	 * @param v : tous les id a ajouter au vector
 	 */
 	public void AddId(int...v) {
+		try {
+		String log = "";
 		for (int i=0; i<v.length;i++) {
 			IdTab.add(v[i]); // ajout de l'id des Notes au Hashtag
+			log = log + v[i] + "\t";
+		}
+		logger.info("Ajout dans le Hashtag " + this.getNom() + " des notes suivantes : " + log);
+		}catch (Exception e) {
+			logger.warning("Erreur lors de l'ajout de note dans le Hashtag " + this.getNom()); // warning dans les log si erreur lors de l'ajout
 		}
 	}
 	
@@ -102,9 +110,13 @@ public class Hashtag {
 	 * @param v Id des Notes a supprimer du Hashtag
 	 */
 	public void RemoveId(int...v) {
+		String log = ""; // string pour le fichier log
 		for (int i=0;i<v.length;i++) {
-			IdTab.remove(v[i]);
+			IdTab.remove((Object)v[i]); // caster les int en Object permet d'utiliser la méthode remove(Object o) qui supprime l'objet et non la méthode remove(int i)
+										// qui supprime l'objet à l'indice i
+			log = log + v[i] + "\t";
 		}
+		logger.info("Supression dans le Hashtag " + this.getNom() + " des notes suivantes : " + log);
 	}
 	
 	/**
