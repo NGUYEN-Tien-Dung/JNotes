@@ -1,0 +1,36 @@
+===================================
+|                                 |
+|     CREER DES FICHIER DE        |
+|     LOG POUR NOS CLASSES        |
+|                                 |
+===================================
+
+pour créer des log il faut ajouter les attributs suivants à vos classes :
+
+- protected static Logger logger = Logger.getLogger("Log");
+- private Handler fh;
+
+Dans le ou les constructeurs de la classe on associe le handler au Logger en précisant
+le type de fichier que l'on souhaite pour les log (text ou XML) :
+
+- fh = new FileHandler("Nomdufichier de log.txt", true); // le true signifie que l'on efface pas le fichier
+- fh.setFormatter(new SimpleFormatter());
+
+Puis pour créer un log dans votre programme il suffit de faire :
+
+- logger.info("text");
+
+/!\ ATTENTION : l'attribut info défini le type de log. On peux égallement mettre (par
+ordre décroissant de sévérité) :
+
+- off
+- severe
+- warning
+- info
+- config
+- fine
+- finer
+- finest
+- all
+
+pour plus d'infos : http://imss-www.upmf-grenoble.fr/prevert/Prog/Java/CoursJava/fichierDeLogs.html

@@ -1,0 +1,13 @@
+=======================================
+|				      |
+|        UTILISATION DE GIT           |
+|				      |
+=======================================
+
+(Spécial Merwann ;) )
+Pour envoyer les fichier mis a jour sur le repository il faut faire les étapes
+suivante en se plaçant dans le dossier JNotes :
+
+git add --all
+git commit -m "message décrivant le commit"
+git push origin second

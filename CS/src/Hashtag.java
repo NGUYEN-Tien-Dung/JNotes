@@ -34,7 +34,7 @@ public class Hashtag {
 		HashTagTab.add(this);
 		// Création du fichier de log
 		 try {
-			fh = new FileHandler("Log.log"); // cosntructeur du fichier de log (utile pour récupérer les utilisations)
+			fh = new FileHandler("Log.log",true); // cosntructeur du fichier de log (utile pour récupérer les utilisations)
 			fh.setFormatter(new SimpleFormatter()); // format du ficher de log --> text (pas de XML)
 			logger.addHandler(fh);
 		} catch (SecurityException e) {
