@@ -10,14 +10,18 @@ Nom de la classe : Hashtag
 
 -------------------- ATRIBUTS --------------------
 
+logger (protected Logger) # pour les fichers de logs
+fh (private Handler) # pour les fichier de logs
 Nom (private String)
 IdTab (private static Vector<Integer>)
-HashTagTab (private static Vector<Hastag>) # le passage en static permet de modifier la liste pour
-						toutes les instances de Hashtag en même temps
+
 
 -------------------- METHODE ---------------------
 
-Hashtag (String Nom, int Id)
+protected Hashtag (String Nom, int Id, Classeur class) # sera appeler seulement une fois pour la
+								construction du premier avec init de classeur
+public Hashtag(String Nom, int Id) # constructeur standrad d'un objet Hashtag (appeler une fois l'init du premier fait
+					avec la classe d'initialisation)
 public void AddId (int...v)
 public void RemoveId (int...v)
 public int GetSize ()

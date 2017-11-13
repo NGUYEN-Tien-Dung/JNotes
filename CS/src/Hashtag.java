@@ -18,34 +18,59 @@ public class Hashtag {
 	private Vector<Integer> IdTab; /* vecteur regroupant les identifiants de toutes
 	les Notes comportant ce Hashtag */
 	private static Classeur classeur; // classeur comportant toutes les notes et leur ID corespondante
-	private static Vector<Hashtag> HashTagTab = new Vector<Hashtag>(); /* Mettre l'attribut en static permet de motifier l'attribut de tout
-	les objet à chaque fois que l'attribut d'un objet est modifier	*/
+	
 	
 	/**
+	 * Constructeur du PREMIER HashTag (permet l'initialisation de l'objet static classeur pour tout les Hashtag)
+	 * Protected permet de ne l'appeler qu'une fois dans une autre classe et ne plus y avoir accès ensuite
+	 * 
 	 * @param NomHashtag : Nom du nouveau Hashtag à créer
 	 * @param IdNote : identifiant de la note initialisant ce hashtag (cad la première note
 	 * ou ce hashtag apparait)
 	 */
-	Hashtag (String NomHashtag, int IdNote, Classeur clas){
+	protected Hashtag (String NomHashtag, int IdNote, Classeur clas){
 		Nom = NomHashtag;
 		classeur = clas;
 		IdTab = new Vector<Integer>(); // déclaration du Vector de int
 		IdTab.add(IdNote); // ajout de l'id de la note initiant ce hastag
-		HashTagTab.add(this);
 		// Création du fichier de log
 		 try {
 			fh = new FileHandler("Log.log",true); // cosntructeur du fichier de log (utile pour récupérer les utilisations)
 			fh.setFormatter(new SimpleFormatter()); // format du ficher de log --> text (pas de XML)
 			logger.addHandler(fh);
 		} catch (SecurityException e) {
-			logger.warning("Erreur fatale de sécurité Hashtag " + NomHashtag + " (Constructeur)");
+			logger.warning("Security exception " + NomHashtag + " (Constructeur)");
 		} catch (IOException e) {
 		}
 		logger.info("Hashtag créé : " + this.getNom() + "(" + IdNote + ")");
 	}
+	
+	/**
+	 * Constructeur régulier de HashTag
+	 * 
+	 * @param NomHashtag
+	 * @param IdNote
+	 */
+	public Hashtag (String NomHashtag, int IdNote) {
+		Nom = NomHashtag;
+		IdTab = new Vector<Integer>(); // déclaration du Vector de int
+		IdTab.add(IdNote); // ajout de l'id de la note initiant ce hastag
+		// Création du fichier de log
+		 try {
+			fh = new FileHandler("Log.log",true); // cosntructeur du fichier de log (utile pour récupérer les utilisations)
+			fh.setFormatter(new SimpleFormatter()); // format du ficher de log --> text (pas de XML)
+			logger.addHandler(fh);
+		} catch (SecurityException e) {
+			logger.warning("Security exception " + NomHashtag + " (Constructeur)");
+		} catch (IOException e) {
+		}
+		logger.info("Hashtag créé : " + this.getNom() + "(" + IdNote + ")");
+	}
+	
 
 	/**
 	 * Accesseur de Nom
+	 * 
 	 * @return le nom du Hashtag
 	 */
 	public String getNom() {
@@ -54,6 +79,7 @@ public class Hashtag {
 	
 	/**
 	 * Accesseur de IdTab
+	 * 
 	 * @return le vecteur des id de notes ayant de Hashtag
 	 */
 	public Vector<Integer> getIdVect(){
@@ -61,6 +87,7 @@ public class Hashtag {
 	}
 	
 	/**
+	 * accesseur de IdTab en mode verbeux = retour des titres des note et non des id
 	 * 
 	 * @return vecteur des titre de notes comportant de hashtag
 	 */
@@ -75,6 +102,22 @@ public class Hashtag {
 	}
 	
 	/**
+	 * Accesseur d'une note par son Id
+	 * 
+	 * @param id : id de la note à retourner
+	 * @return la note corespondant à l'id demander (l'id doit être dans 
+	 */
+	public Note getNote(int id) {
+		if (IdTab.contains(id)==false) {
+			logger.warning("tentative d'accès à un ID non compris dans le hashtag courant (#" + Nom + ")");
+			return null;
+		}else {
+			return classeur.getNote(id);
+		}
+	}
+	
+	/**
+	 * Accesseur du nombre de note comprenant ce Hashtag
 	 * 
 	 * @return Nombre de Note comportant ce Hashtag
 	 */
@@ -82,13 +125,9 @@ public class Hashtag {
 		return IdTab.size();
 	}
 	
-	
-	public int getNbHashtag() {
-		return HashTagTab.size();
-	}
-	
 	/**
-	 * Fonction a paramètre multiple de type int
+	 * Méthode a paramètre multiple de type int
+	 * 
 	 * @param v : tous les id a ajouter au vector
 	 */
 	public void AddId(int...v) {
@@ -105,8 +144,8 @@ public class Hashtag {
 	}
 	
 	/**
-	 * methode permettant de supprimer les note dont le Hashtag ne figure
-	 * dans la Note
+	 * methode permettant de supprimer les note dont le Hashtag ne figure dans la Note
+	 * 
 	 * @param v Id des Notes a supprimer du Hashtag
 	 */
 	public void RemoveId(int...v) {
@@ -120,6 +159,8 @@ public class Hashtag {
 	}
 	
 	/**
+	 * Permet l'affichage des infos dans la console (pour le développement) 
+	 * 
 	 * @param Verbose : boolean permettant de définir le type d'affichage Id/Nom
 	 * @return un string Verbeux de l'état d'un hashtag pour affichage
 	 */

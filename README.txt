@@ -5,9 +5,10 @@
 ==================================================
 
 GUI : Valentin / Merwann
-#Tag / Save : Nicolas
+#Tag : Nicolas
+Save : Nguyen Tin Dung
 Note / export : Guillaume
-Import : Abdellah / Nicolas
+Import : Chau Khac Quoc Bao
 Traitement Text : Abdellah
 
 ==================================================
