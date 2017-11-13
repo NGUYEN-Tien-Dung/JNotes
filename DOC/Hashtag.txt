@@ -29,3 +29,4 @@ public String getNom ()
 public Vector<Integer> getIdVect()
 public Vector<String> getIdVectVerbose() # identique à IdVect, mais renvoi un Vector
 						avec les titres des note, et nom les ID
+public Fusion(HashtagToFusion) # permet la fusion de deux objet hashtag ayant le même Nom de hashtag

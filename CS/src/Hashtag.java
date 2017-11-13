@@ -22,12 +22,14 @@ public class Hashtag {
 	
 	/**
 	 * Constructeur du PREMIER HashTag (permet l'initialisation de l'objet static classeur pour tout les Hashtag)
-	 * Protected permet de ne l'appeler qu'une fois dans une autre classe et ne plus y avoir accès ensuite
+	 * Protected permet de ne l'appeler qu'une fois dans une autre classe et ne plus y avoir accès ensuite.
+	 * Sera appeler par la création du hashtag UNDIFINED qui est le tag par défaut !
 	 * 
 	 * @param NomHashtag : Nom du nouveau Hashtag à créer
 	 * @param IdNote : identifiant de la note initialisant ce hashtag (cad la première note
 	 * ou ce hashtag apparait)
 	 */
+	// TODO Mettre cette appel de constructeur dans une class spécial pour l'initialisation des HashTag
 	protected Hashtag (String NomHashtag, int IdNote, Classeur clas){
 		Nom = NomHashtag;
 		classeur = clas;
@@ -99,6 +101,21 @@ public class Hashtag {
 		}
 		
 		return result;
+	}
+	
+	/**
+	 * Méthode donnant le nméro de la Note à une certaine ponsitin dans le vecteur d'Id
+	 * 
+	 * @param position : Position dans le vecteur
+	 * @return le numéro de la note
+	 */
+	public int getIdNote(int position) {
+		try {
+			return IdTab.get(position);
+		}catch(Exception e) {
+			logger.warning("Tentative de lecture en dehors de la taille du vecteur d'Id d'un Hashtag");
+			return -1;
+		}
 	}
 	
 	/**
@@ -183,5 +200,18 @@ public class Hashtag {
 		return result;
 	}
 	
+	/**
+	 * Méthode permettant la fusion de deux hashtag ayant le même nom si l'on essaye d'ajouter a VectHashtag un hashtag existant.
+	 * Cette méthode garde les éléments de l'objet courant et ajout, le cas échéant, les éléments du Hashtag à fusionner
+	 * 
+	 * @param ToFusion : le Hashtag à fusionner avec le Hashtag courant
+	 */
+	public void Fusion(Hashtag ToFusion) {
+		for (int i=0;i<ToFusion.getSize();i++) {
+			if (!IdTab.contains(ToFusion.getIdNote(i))) {
+				IdTab.addElement(ToFusion.getIdNote(i));
+			}
+		}
+	}
 	
 }

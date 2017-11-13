@@ -1,0 +1,22 @@
+==================================================
+|                                                |
+|             METHODE DE VECTHASHTAG             |
+|                                                |
+==================================================
+
+------------------ INFOS GENERAL -----------------
+
+Nom de la classe : VectHashtag
+
+-------------------- ATRIBUTS --------------------
+
+vector (private static HashMap<String,Hashtag>)
+
+-------------------- METHODE ---------------------
+
+public VectHashtag()
+public VectHashtag(Hashtag hashtag)
+public VectHashtag(Hashtag...v)
+public gethashtag(String name)
+public removeHashtag(String name)
+public AddHastag(Hashtag hashtag)
