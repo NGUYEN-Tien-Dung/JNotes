@@ -1,3 +1,4 @@
+package note;
 
 // Import permettant entre autres la saisie clavier :
 import java.util.Scanner;
