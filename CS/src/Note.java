@@ -1,41 +1,29 @@
-package note;
 
 // Import permettant entre autres la saisie clavier :
 import java.util.Scanner;
 import java.util.*;   
 
 // Import permettant la gestion des fichiers :
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+
 
 // Outils permettant la gÃ©nÃ©ration de PDF :
 
 
 // Import permettant de manipuler (lire et Ã©crire des documents XML) :
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import org.w3c.dom.Comment;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
+
+
+// les imports on ne les écrit pas avant, il se mette au fur et a mesur du code par ajout des packages trouver dans le code par le compilateur! c'est plus propre
 
 public class Note
 {
     // Attribus de la classe note (tout est en private, les accesseur et mutateur sont la pour Ã§a) : 
     private String titre;
     private String text;
-    private String Hashtag;
-    private int Id; 
+    private String Hashtag; // doit être un vector pour mettre autant qu'on veux et pas un seul
+    private int Id;  //manque l'auto incrément de id
+    
+    
+    //ConstructeurS ?!?
     
     // Accesseur pour text :
     public String getText()
@@ -62,6 +50,8 @@ public class Note
     }
     
     // Mutateur pour Id : 
+    // doit être auto incrémentale ! pas de set de l'id de la note
+    // incrémenté dans le constructeur
     private void setId(int Identifiant)
     {
         this.Id = Identifiant;
@@ -80,12 +70,16 @@ public class Note
     }
     
     // Mutateur pour Hastag :
+    // doit gérer un vector, sinon la on peux avoir que un seul hashtag à la fois .....
+    // du coup faire un set et un remove
+    // le set ajoutera et le remove enlève (attention au exception, si le hashtag existe déja ou si il n'existe pas etc.)
     private void setHastag(String Has)
     {
         this.Hashtag = Has;
     }
    
     // Remplissage d'une note - UTILISATION FINALE :
+    // MAuvaise utilisation | doit être un constructeur et non une méthode simple
     public void remplir(String TITRE, String TEXT, String HASHTAG, int ID)
     {
         this.setHastag(HASHTAG);
@@ -119,7 +113,7 @@ public class Note
         }
     }
     
-    // Remplissage d'une note - POUR LES TESTS  :
+    // A dégager, pour  faire des test on met des constructeur qu'on appel dans un void main dans la classe de test
     public void remplir_TESTS()
     {
         Scanner sc = new Scanner(System.in);

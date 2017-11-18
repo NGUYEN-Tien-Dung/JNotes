@@ -107,7 +107,7 @@ public class VectHashtag {
 		try {
 			vector.remove(name);
 		}catch (Exception e) {
-			logger.warning("");
+			logger.warning("Impossible de retirer le hashtag " + name + " du vecteur");
 		}
 	}
 	
@@ -121,7 +121,7 @@ public class VectHashtag {
 			if (!vector.containsKey(hashtag.getNom())) {
 				vector.put(hashtag.getNom(), hashtag);  // on ajoute le Hashtag si et seulement si il n'existe pas déja dans le vecteur
 			}else {
-				Hashtag existant = getHashtag(hashtag.getNom()); // Même que dans le vecteur --> donc la version Fusionné est sera automatiquement dans le vecteur
+				Hashtag existant = getHashtag(hashtag.getNom()); // Même que dans le vecteur --> donc la version Fusionné sera automatiquement dans le vecteur
 				existant.Fusion(hashtag);
 			}
 		}catch(Exception e) {

@@ -40,11 +40,9 @@ public class Hashtag {
 			fh = new FileHandler("Log.log",true); // cosntructeur du fichier de log (utile pour récupérer les utilisations)
 			fh.setFormatter(new SimpleFormatter()); // format du ficher de log --> text (pas de XML)
 			logger.addHandler(fh);
-		} catch (SecurityException e) {
-			logger.warning("Security exception " + NomHashtag + " (Constructeur)");
-		} catch (IOException e) {
+		} catch (Exception e) {
 		}
-		logger.info("Hashtag créé : " + this.getNom() + "(" + IdNote + ")");
+		logger.info("Hashtag d'initialisation UNDIFINED réaliser avec succès");
 	}
 	
 	/**
@@ -207,11 +205,14 @@ public class Hashtag {
 	 * @param ToFusion : le Hashtag à fusionner avec le Hashtag courant
 	 */
 	public void Fusion(Hashtag ToFusion) {
-		for (int i=0;i<ToFusion.getSize();i++) {
-			if (!IdTab.contains(ToFusion.getIdNote(i))) {
-				IdTab.addElement(ToFusion.getIdNote(i));
+		try {
+			for (int i=0;i<ToFusion.getSize();i++) {
+				if (!IdTab.contains(ToFusion.getIdNote(i)) && ToFusion.getIdNote(i)!=-1) {
+					IdTab.addElement(ToFusion.getIdNote(i));
+				}
 			}
+		}catch(Exception e) {
+			logger.warning("Erreur lors de la fusion du hashtag " + Nom);
 		}
 	}
-	
 }
