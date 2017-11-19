@@ -21,7 +21,7 @@ public class Classeur {
 	 * @param doc : Document XML parser pour remplir le classeur
 	 */
 	Classeur(Document doc){
-		// construction de l'objet de log
+		// construction de l'objet de log (voir avec Chau)
 		 try {
 				fh = new FileHandler("Log.log",true); // cosntructeur du fichier de log (utile pour récupérer les utilisations)
 				fh.setFormatter(new SimpleFormatter()); // format du ficher de log --> text (pas de XML)
