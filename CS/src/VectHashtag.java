@@ -42,7 +42,7 @@ public class VectHashtag {
 	/**
 	 * Constructeur à un paramètre
 	 * 
-	 * @param hashtag : Objet hashtag initialisant le vecteur
+	 * @param hashtag Objet hashtag initialisant le vecteur
 	 */
 	public VectHashtag(Hashtag hashtag) {
 		vector = new HashMap<String,Hashtag>();
@@ -86,7 +86,7 @@ public class VectHashtag {
 	/**
 	 * Accesseur du nom d'un hashtag
 	 * 
-	 * @param id : position du hashtag dans le vecteur de hashtag
+	 * @param name position du hashtag dans le vecteur de hashtag
 	 * @return Le nom du hashtag à la position id dans le vecteur
 	 */
 	public Hashtag getHashtag(String name) {
@@ -114,7 +114,7 @@ public class VectHashtag {
 	/**
 	 * Ajout d'un Hashtag quand il est créer
 	 * 
-	 * @param hashtag : Objet Hashtag à mettre dans le vecteur
+	 * @param hashtag Objet Hashtag à mettre dans le vecteur
 	 */
 	public void AddHashtag(Hashtag hashtag) {
 		try {

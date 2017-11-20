@@ -34,7 +34,7 @@ public class Classeur {
 	/**
 	 * Accesseur du titre d'une note dans le classeur par son id
 	 * 
-	 * @param id : Id de la note voulut
+	 * @param id Id de la note voulut
 	 * @return Le titre de la note
 	 */
 	public String getTitle(int id) {
@@ -44,7 +44,7 @@ public class Classeur {
 	/**
 	 * Accesseur d'une note dans le classeur par son id
 	 * 
-	 * @param id : id de la note
+	 * @param id id de la note
 	 * @return La Note voulut
 	 */
 	public Note getNote(int id) {

@@ -26,7 +26,7 @@ public class Hashtag {
 	 * Sera appeler par la création du hashtag UNDIFINED qui est le tag par défaut !
 	 * 
 	 * @param NomHashtag : Nom du nouveau Hashtag à créer
-	 * @param IdNote : identifiant de la note initialisant ce hashtag (cad la première note
+	 * @param IdNote identifiant de la note initialisant ce hashtag (cad la première note
 	 * ou ce hashtag apparait)
 	 */
 	// TODO Mettre cette appel de constructeur dans une class spécial pour l'initialisation des HashTag
@@ -104,7 +104,7 @@ public class Hashtag {
 	/**
 	 * Méthode donnant le nméro de la Note à une certaine ponsitin dans le vecteur d'Id
 	 * 
-	 * @param position : Position dans le vecteur
+	 * @param position Position dans le vecteur
 	 * @return le numéro de la note
 	 */
 	public int getIdNote(int position) {
@@ -119,7 +119,7 @@ public class Hashtag {
 	/**
 	 * Accesseur d'une note par son Id
 	 * 
-	 * @param id : id de la note à retourner
+	 * @param id id de la note à retourner
 	 * @return la note corespondant à l'id demander (l'id doit être dans 
 	 */
 	public Note getNote(int id) {
@@ -143,7 +143,7 @@ public class Hashtag {
 	/**
 	 * Méthode a paramètre multiple de type int
 	 * 
-	 * @param v : tous les id a ajouter au vector
+	 * @param v tous les id a ajouter au vector
 	 */
 	public void AddId(int...v) {
 		try {
@@ -176,7 +176,7 @@ public class Hashtag {
 	/**
 	 * Permet l'affichage des infos dans la console (pour le développement) 
 	 * 
-	 * @param Verbose : boolean permettant de définir le type d'affichage Id/Nom
+	 * @param Verbose boolean permettant de définir le type d'affichage Id/Nom
 	 * @return un string Verbeux de l'état d'un hashtag pour affichage
 	 */
 	public String Infos(boolean Verbose) {
@@ -202,7 +202,7 @@ public class Hashtag {
 	 * Méthode permettant la fusion de deux hashtag ayant le même nom si l'on essaye d'ajouter a VectHashtag un hashtag existant.
 	 * Cette méthode garde les éléments de l'objet courant et ajout, le cas échéant, les éléments du Hashtag à fusionner
 	 * 
-	 * @param ToFusion : le Hashtag à fusionner avec le Hashtag courant
+	 * @param ToFusion le Hashtag à fusionner avec le Hashtag courant
 	 */
 	public void Fusion(Hashtag ToFusion) {
 		try {
