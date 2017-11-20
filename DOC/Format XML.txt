@@ -1,0 +1,16 @@
+======================================
+|			   	     |
+|       STRUCTURE DU FICHIER XML     |
+|				     |
+======================================
+
+<Notes>
+	<Note>
+		<id/>
+		<hashtags>
+			<hashtag> nom du hashtag </hashtag>
+		</hashtags>
+		<Titre/>
+		<Texte/>
+	</Note>
+</Notes>
