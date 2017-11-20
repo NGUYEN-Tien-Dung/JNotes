@@ -11,7 +11,6 @@ public class Undifined {
 	// Atributs de la classe
 	private Hashtag init;
 	private static final String Nom = "UNDIFINED";
-	private final Classeur classeur;
 	
 	
 	/**
@@ -22,7 +21,6 @@ public class Undifined {
 	 */
 	public Undifined(Classeur clas) {
 		init = new Hashtag(Nom,0,clas);
-		classeur = clas;
 	}
 	
 	
