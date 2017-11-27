@@ -3,19 +3,8 @@
 import java.util.Scanner;
 import java.util.*;   
 
-// Import permettant la gestion des fichiers :
-
-
-// Outils permettant la génération de PDF :
-
-
-// Import permettant de manipuler (lire et écrire des documents XML) :
-
-
-// les imports on ne les �crit pas avant, il se mette au fur et a mesur du code par ajout des packages trouver dans le code par le compilateur! c'est plus propre
-
-public class Note
-{
+public class Note {
+	
     // Attribus de la classe note (tout est en private, les accesseur et mutateur sont la pour ça) : 
     private String titre;
     private String text;

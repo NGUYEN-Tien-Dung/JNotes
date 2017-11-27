@@ -1,0 +1,4 @@
+--> Créer un classeur vide
+--> Créer un vecteur VectHashtag vide
+--> Créer le hashtag undefined (donc init de l'objet static classeur dans les objet hashtag)
+--> Créer une note (--> implique créer les hashtag qui vont avec)
