@@ -16,6 +16,18 @@ public class Classeur {
 	private HashMap<Integer,Note> dico; // Note sera une classe défini par Guillaume Paupart
 	
 	/**
+	 * Constructeur sans argument pour la classe Classseur
+	 */
+	Classeur(){
+		dico = new HashMap<Integer,Note>();
+		try {
+			fh = new FileHandler("Log.log",true); // cosntructeur du fichier de log (utile pour récupérer les utilisations)
+			fh.setFormatter(new SimpleFormatter()); // format du ficher de log --> text (pas de XML)
+			logger.addHandler(fh);
+		} catch (Exception e) {
+		}
+	}
+	/**
 	 * Constructeur à un parmètre. Doit être appeler après le parsage par la classe import
 	 * 
 	 * @param doc : Document XML parser pour remplir le classeur

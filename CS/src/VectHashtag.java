@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
@@ -24,7 +26,7 @@ public class VectHashtag {
 	 * Constructeur sans argument
 	 */
 	public VectHashtag() {
-		vector = new HashMap<String,Hashtag>();
+		vector = new HashMap<String,Hashtag>(); // appel du constructeur qui créé l'atribut static classeur
 		try {
 			fh = new FileHandler("Log.log",true);
 			fh.setFormatter(new SimpleFormatter()); // format du ficher de log --> text (pas de XML)
@@ -127,5 +129,18 @@ public class VectHashtag {
 		}catch(Exception e) {
 			logger.warning("Impossible d'ajouter le hashtag " + hashtag.getNom() + " à l'objet VectHashtag");
 		}
+	}
+	
+	public String Infos() {
+		String info = "----------------- VECTHASHTAG ------------------\n";
+		info = info + "Hashtag : ";
+		Set<String> clef = vector.keySet();
+		Iterator<String> ite = clef.iterator();
+		while (ite.hasNext()) {
+			Object cle = ite.next();
+			info = info + vector.get(cle).getNom() + "\t";
+		}
+		info = info + "\n------------------------------------------------\n";
+		return info;
 	}
 }

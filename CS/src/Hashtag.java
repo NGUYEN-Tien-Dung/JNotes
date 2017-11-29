@@ -13,12 +13,12 @@ import java.util.logging.SimpleFormatter;
 public class Hashtag {
 
 	protected static Logger logger = Logger.getLogger("Log"); // Atribut permettant l'utilisation de logger extérieur (écrit dans une fichier séparer)
-	private Handler fh;
+	public Handler fh;
 	private String Nom;
 	private Vector<Integer> IdTab; /* vecteur regroupant les identifiants de toutes
 	les Notes comportant ce Hashtag */
 	private static Classeur classeur; // classeur comportant toutes les notes et leur ID corespondante
-	
+	// ERREUR A NE PAS FAIRE : mettre un atribut Vecthashtag et ajouter des hahtag dedans
 	
 	/**
 	 * Constructeur du PREMIER HashTag (permet l'initialisation de l'objet static classeur pour tout les Hashtag)
@@ -211,6 +211,7 @@ public class Hashtag {
 					IdTab.addElement(ToFusion.getIdNote(i));
 				}
 			}
+			logger.info("Fusion du Hashtag " + ToFusion.getNom());
 		}catch(Exception e) {
 			logger.warning("Erreur lors de la fusion du hashtag " + Nom);
 		}

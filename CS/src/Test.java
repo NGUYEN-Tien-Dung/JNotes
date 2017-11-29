@@ -4,10 +4,11 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		Document doc = null;
-		Classeur clas = new Classeur(doc);
+		Classeur clas = new Classeur();
+		Undifined init = new Undifined(clas);
+		System.out.println(init.Infos(false));
+		VectHashtag vectorH = new VectHashtag(init);
 		Hashtag tag = new Hashtag("Love",134,clas); // création d'un tag
-		VectHashtag vectorH = new VectHashtag(tag); // création du vecteur de hashgtag static
 		tag.AddId(12,34,65,46,7,10,28); 
 		System.out.println(tag.Infos(false));
 		tag.RemoveId(65,7,10);
@@ -17,6 +18,7 @@ public class Test {
 		Hashtag tag3 = new Hashtag("Foot",23);
 		vectorH.AddHashtag(tag3);
 		System.out.println(vectorH.getHashtag("Foot").Infos(false));
+		System.out.println(vectorH.Infos());
 	}
 
 }
