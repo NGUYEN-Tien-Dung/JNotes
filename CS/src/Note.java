@@ -368,7 +368,7 @@ private static Vector<String> Redondense_HASHTAG(Vector<String> VEC_A_TRIER)
     }
     
     // Accesseur pour Hastag : 
-    public Vector getHastag()
+    public Vector<String> getHastag()
     {
         return this.Hashtag;
     }
@@ -382,13 +382,13 @@ private static Vector<String> Redondense_HASHTAG(Vector<String> VEC_A_TRIER)
     // Mutateur pour Id : 
     // doit être auto incrémentale ! pas de set de l'id de la note
     // incrémenté dans le constructeur
-    private void setId(int Identifiant)
+    public void setId(int Identifiant)
     {
         this.Id = Identifiant;
     }
     
     // Mutateur pour Text : 
-    private void setTexte(String Text_de_la_note)
+    public void setTexte(String Text_de_la_note)
     {
         this.text = Text_de_la_note;
     }
@@ -403,17 +403,19 @@ private static Vector<String> Redondense_HASHTAG(Vector<String> VEC_A_TRIER)
     // doit gérer un vector, sinon la on peux avoir que un seul hashtag à la fois .....
     // du coup faire un set et un remove
     // le set ajoutera et le remove enlève (attention au exception, si le hashtag existe déja ou si il n'existe pas etc.)
-    private void setHastag(Vector<String> Has)
+    public void setHastag(Vector<String> Has)
     {
-        int i = 0;
-        for(i=0;i<Has.size();i++)
-        {
-            this.Hashtag.add(Has.elementAt(i));
-        }
+        this.Hashtag = Has;
+    }
+    
+    // Ajout d'un objet string à la fin d'un vecteur :
+    public void setHastag_string(String Has)
+    {
+            this.Hashtag.add(Has);
     }
    
     // Remplissage d'une note - UTILISATION FINALE :
-    // MAuvaise utilisation | doit être un constructeur et non une méthode simple
+    // MAuvaise utilisation | doit être un constructeur et non une méthode simpleù
     public void remplir(String TITRE, String TEXT, Vector<String> HASHTAG, int ID)
     {
         this.setHastag(HASHTAG);
