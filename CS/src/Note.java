@@ -310,8 +310,7 @@ private static Vector<String> Redondense_HASHTAG(Vector<String> VEC_A_TRIER)
             this.ERREUR_CREATION = this.ERREUR_CREATION + " " + "Aucun HASHTAG présent dans cette note";
         }    
     }
-    
-    
+   
     // Accesseur pour text :
     public String getText()
     {
