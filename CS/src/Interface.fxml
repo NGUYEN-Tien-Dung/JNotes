@@ -55,14 +55,13 @@
    <center>
       <SplitPane dividerPositions="0.20562130177514792" orientation="VERTICAL" prefHeight="674.0" prefWidth="734.0" BorderPane.alignment="CENTER">
         <items>
-          <AnchorPane prefHeight="335.0" prefWidth="797.0">
+          <AnchorPane fx:id="test" prefHeight="335.0" prefWidth="797.0">
                <children>
-                  <Button fx:id="b1" alignment="CENTER" contentDisplay="CENTER" layoutX="413.0" layoutY="56.0" mnemonicParsing="false" onAction="#sayHi" text="Button" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="518.0" prefWidth="878.0">
+          <AnchorPane  minHeight="0.0" minWidth="0.0" prefHeight="518.0" prefWidth="878.0">
                <children>
-                  <TextField fx:id="t1" layoutX="365.0" layoutY="155.0" promptText="say hi" />
+                  
                </children>
             </AnchorPane>
         </items>

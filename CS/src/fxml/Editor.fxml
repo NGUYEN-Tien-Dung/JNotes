@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.button.*?>
+<?import javafx.scene.text.*?>
+
+<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml">
+
+
+<HTMLEditor visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" style="-fx-font-family: Segoe Ui; -fx-font-size:13;" fx:id="htmlEditor"/>
+<Button fx:id="showmarkdown" visible="false" graphicTextGap="0.0"   text="MARKDOWN" style="-fx-background-color: #7085FF ; -fx-background-radius: 30;-fx-background-insets: 0;" textFill="WHITE" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="4.0" />
+<TextArea AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" style="-fx-font-family: 'Segoe Ui'; -fx-font-size:16" fx:id="markdownEditor"/>
+<Button fx:id="showhtml" graphicTextGap="0.0"   text="VISUAL EDITOR" style="-fx-background-color: #7085FF ;-fx-background-radius: 30;-fx-background-insets: 0;" textFill="WHITE" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="4.0" />
+
+</fx:root>
