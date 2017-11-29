@@ -3,7 +3,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.*;
 import javafx.scene.Parent;
 
 
@@ -13,7 +13,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 			FXMLLoader  loader = new FXMLLoader(getClass().getResource("Interface.fxml"));
 			Parent root = loader.load();
-			AnchorPane contenaire = (AnchorPane) loader.getNamespace().get("test");
+			VBox contenaire = (VBox) loader.getNamespace().get("test");
 			Editor abdellah = new Editor();
 			contenaire.getChildren().add(abdellah);
 			primaryStage.setTitle("Hello World");

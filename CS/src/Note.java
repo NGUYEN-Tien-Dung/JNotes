@@ -122,7 +122,7 @@ class HASHTAG_Vide extends Exception
 		super(message, cause); 
 	} 
  }
-   
+
 // Gestion des exception - Hashtag déjà existant :
 class Hashtag_daja_existant extends Exception
 { 
@@ -310,50 +310,6 @@ private static Vector<String> Redondense_HASHTAG(Vector<String> VEC_A_TRIER)
             this.ERREUR_CREATION = this.ERREUR_CREATION + " " + "Aucun HASHTAG présent dans cette note";
         }    
     }
-    
-    public Note(String TITRE, String TEXTE, String NEW_HASHTAG)
-    {
-        try 
-        {
-            this.setTexte(TEXTE);
-            this.setTitre(TITRE);
-            this.Hashtag.add(NEW_HASHTAG);
-            
-            // Si texte vide - Execption 
-            if(this.text.isEmpty()==true)
-            {
-                throw new Note_Vide("La Note est vide");
-            }
-            
-            // Si absence de titre - Execption :
-            if(this.titre.isEmpty()==true)
-            {
-                throw new Titre_Vide("Vous avez oublié de donner un titre à votre document");
-            }
-            
-            // Si le HASHTAG_IN_NOTE vide - Execption :
-            if(NEW_HASHTAG.isEmpty()==true)
-            {
-                throw new HASHTAG_Vide("Aucun HASHTAG n'est présent dans votre texte");
-            }
-        }
-        // Modification de la variable globale gestion des erreurs :
-        // Cette variable est à disposition de ceux qui voudraient implémenter une 
-        // Message box avertissant l'utilisateur de sa mauvaise munipulation 
-        catch(Note_Vide nv)
-        {
-            this.ERREUR_CREATION = this.ERREUR_CREATION + " " + "La note est vide";
-        }
-        catch(Titre_Vide tv)
-        {
-             this.ERREUR_CREATION = this.ERREUR_CREATION + " " + "La note est vide";
-        }
-        catch(HASHTAG_Vide hs)
-        {
-            this.ERREUR_CREATION = this.ERREUR_CREATION + " " + "Aucun HASHTAG présent dans cette note";
-        }    
-    }
-    
    
     // Accesseur pour text :
     public String getText()
@@ -368,7 +324,7 @@ private static Vector<String> Redondense_HASHTAG(Vector<String> VEC_A_TRIER)
     }
     
     // Accesseur pour Hastag : 
-    public Vector<String> getHastag()
+    public Vector getHastag()
     {
         return this.Hashtag;
     }
@@ -382,13 +338,13 @@ private static Vector<String> Redondense_HASHTAG(Vector<String> VEC_A_TRIER)
     // Mutateur pour Id : 
     // doit être auto incrémentale ! pas de set de l'id de la note
     // incrémenté dans le constructeur
-    public void setId(int Identifiant)
+    private void setId(int Identifiant)
     {
         this.Id = Identifiant;
     }
     
     // Mutateur pour Text : 
-    public void setTexte(String Text_de_la_note)
+    private void setTexte(String Text_de_la_note)
     {
         this.text = Text_de_la_note;
     }
@@ -403,19 +359,17 @@ private static Vector<String> Redondense_HASHTAG(Vector<String> VEC_A_TRIER)
     // doit gérer un vector, sinon la on peux avoir que un seul hashtag à la fois .....
     // du coup faire un set et un remove
     // le set ajoutera et le remove enlève (attention au exception, si le hashtag existe déja ou si il n'existe pas etc.)
-    public void setHastag(Vector<String> Has)
+    private void setHastag(Vector<String> Has)
     {
-        this.Hashtag = Has;
-    }
-    
-    // Ajout d'un objet string à la fin d'un vecteur :
-    public void setHastag_string(String Has)
-    {
-            this.Hashtag.add(Has);
+        int i = 0;
+        for(i=0;i<Has.size();i++)
+        {
+            this.Hashtag.add(Has.elementAt(i));
+        }
     }
    
     // Remplissage d'une note - UTILISATION FINALE :
-    // MAuvaise utilisation | doit être un constructeur et non une méthode simpleù
+    // MAuvaise utilisation | doit être un constructeur et non une méthode simple
     public void remplir(String TITRE, String TEXT, Vector<String> HASHTAG, int ID)
     {
         this.setHastag(HASHTAG);
