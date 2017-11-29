@@ -19,10 +19,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-// Outils permettant la gÃ©nÃ©ration de PDF :
+// Outils permettant la génération de PDF :
 
 
-// Import permettant de manipuler (lire et Ã©crire des documents XML) :
+// Import permettant de manipuler (lire et écrire des documents XML) :
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -37,44 +37,44 @@ import org.w3c.dom.Comment;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-// Gestion des exception - Note déjà existante :  
+// Gestion des exception - Note d�j� existante :  
 class Note_deja_existante extends Exception
 { 
   private String Note_deja_existante()
   {
-    String TYPE_ERREUR = "La note que vous essayez de créer existe déjà - Elle ne sera pas créé deux fois";
+    String TYPE_ERREUR = "La note que vous essayez de cr�er existe d�j� - Elle ne sera pas cr�� deux fois";
     System.out.println(TYPE_ERREUR);
     return TYPE_ERREUR;
   }  
 }
 
-// Gestion des execptions - Création d'une note vide (sans texte) : 
+// Gestion des execptions - Cr�ation d'une note vide (sans texte) : 
 class Note_Vide extends Exception
 {  
 	/** 
-	* Crée une nouvelle instance de NombreNonValideException 
+	* Cr�e une nouvelle instance de NombreNonValideException 
 	*/  
 	public Note_Vide() {}  
 	/** 
-	* Crée une nouvelle instance de NombreNonValideException 
-	* @param message Le message détaillant exception 
+	* Cr�e une nouvelle instance de NombreNonValideException 
+	* @param message Le message d�taillant exception 
 	*/  
 	public Note_Vide(String message) 
         {  
 		super(message); 
 	}  
 	/** 
-	* Crée une nouvelle instance de NombreNonValideException 
-	* @param cause L'exception à l'origine de cette exception 
+	* Cr�e une nouvelle instance de NombreNonValideException 
+	* @param cause L'exception � l'origine de cette exception 
 	*/  
 	public Note_Vide(Throwable cause) 
         {  
 		super(cause); 
 	}  
 	/** 
-	* Crée une nouvelle instance de NombreNonValideException 
-	* @param message Le message détaillant exception 
-	* @param cause L'exception à l'origine de cette exception 
+	* Cr�e une nouvelle instance de NombreNonValideException 
+	* @param message Le message d�taillant exception 
+	* @param cause L'exception � l'origine de cette exception 
 	*/  
 	public Note_Vide(String message, Throwable cause) 
         {  
@@ -102,7 +102,7 @@ class Note_Vide extends Exception
 	} 
  }
 
-// Gestion des exeptions - Absence de HASHTAG lors de l'appel du deuxième constructeur :
+// Gestion des exeptions - Absence de HASHTAG lors de l'appel du deuxi�me constructeur :
 class HASHTAG_Vide extends Exception
 {  
 	public HASHTAG_Vide() {}  
@@ -122,40 +122,25 @@ class HASHTAG_Vide extends Exception
 		super(message, cause); 
 	} 
  }
-<<<<<<< HEAD
 
-// Gestion des exception - Hashtag déjà existant :
+// Gestion des exception - Hashtag d�j� existant :
 class Hashtag_daja_existant extends Exception
 { 
   private String Hashtag_daja_existant()
   {
-    String TYPE_ERREUR = "Le Hashtag existe déja - Il ne sera pas créé deux fois";
+    String TYPE_ERREUR = "Le Hashtag existe d�ja - Il ne sera pas cr�� deux fois";
     System.out.println(TYPE_ERREUR);
     return TYPE_ERREUR;
   }  
 }
 
-=======
-
-// Gestion des exception - Hashtag déjà existant :
-class Hashtag_daja_existant extends Exception
-{ 
-  private String Hashtag_daja_existant()
-  {
-    String TYPE_ERREUR = "Le Hashtag existe déja - Il ne sera pas créé deux fois";
-    System.out.println(TYPE_ERREUR);
-    return TYPE_ERREUR;
-  }  
-}
-
->>>>>>> 8e46a26321c1552285a65a69a1adba3956383e55
 public class Note
 {
-    // Attribus de la classe note (tout est en private, les accesseur et mutateur sont la pour Ã§a) : 
+    // Attribus de la classe note (tout est en private, les accesseur et mutateur sont la pour ça) : 
     private String titre;
     private String text;
-    private Vector<String> Hashtag; // doit être un vector pour mettre autant qu'on veux et pas un seul
-    private int Id;  //manque l'auto incrément de id
+    private Vector<String> Hashtag; // doit �tre un vector pour mettre autant qu'on veux et pas un seul
+    private int Id;  //manque l'auto incr�ment de id
     public String ERREUR_CREATION;
     
     // Savoir si une note est vide - Pour la gestion des execptions - vide si la fonction retoure TRUE:
@@ -164,8 +149,8 @@ public class Note
         return text.isEmpty();
     }
     
-    // Savoir si un hashtag existé déjà dans le vector HASHTAG :
-    // Utile pour ne pas enregistrer deux fois le même HASHTAG :
+    // Savoir si un hashtag exist� d�j� dans le vector HASHTAG :
+    // Utile pour ne pas enregistrer deux fois le m�me HASHTAG :
     private boolean Hashtag_exist_or_not(String HASHTAG)
     {
         int i = 0;
@@ -180,24 +165,18 @@ public class Note
         return EXIST;
     }
     
-    // Suppression des éléments qui présents plusieurs fois dans le même vecteur :
-    // Cette fonction est appelée dans : 
+    // Suppression des �l�ments qui pr�sents plusieurs fois dans le m�me vecteur :
+    // Cette fonction est appel�e dans : 
     //          - le second constructeur de note
-    //          - La fonction modifiant une note déjà créer 
-<<<<<<< HEAD
-        private static Vector<String> Redondense_HASHTAG(Vector<String> VEC_A_TRIER)
+    //          - La fonction modifiant une note d�j� cr�er 
+private static Vector<String> Redondense_HASHTAG(Vector<String> VEC_A_TRIER)
     { 
         int i = 0;
         int j = 0;
         int k = 1;
         int cpt = 0;
         String tmp = VEC_A_TRIER.elementAt(0);
-        //String tmp = "a";
-        //System.out.println("La chaine temporaire est : \n");
-        //System.out.println(tmp);
-        //System.out.println("\\\\\\\\\\\\\\\\\\\\\\\\\\\\n");
         int taille = VEC_A_TRIER.size();
-        //System.out.println("La taille est : " + taille + "\n");
         Vector<String> v = new Vector(1,1);
        
         // Recopie du vecteur pour �viter la modification en cours de VEC_A_TRIER - MARCHE :
@@ -223,7 +202,6 @@ public class Note
         // dans le vectoeur est r�p�t� plusieurs fois : 
         while(k<taille)
         {
-            //tmp = "a";
             tmp = (String)VEC_A_TRIER.elementAt(k);
             for(j=k;j<VEC_A_TRIER.size();j++)
             {
@@ -231,9 +209,7 @@ public class Note
                 {
                     cpt++;
                 }
-
             }
-
             // Si des occurences multiple sont trouv�es, on les supprimes : 
             if(cpt>0)
             {
@@ -248,12 +224,12 @@ public class Note
         return v;
     }
     
-    // Constructeur par défaut - Création d'une note à partir de sont TITRE et du TEXTE qu'elle contient :
+    // Constructeur par d�faut - Cr�ation d'une note � partir de sont TITRE et du TEXTE qu'elle contient :
     // RESTE A FAIRE : Gestion des ID
     public Note(String TITRE, String TEXTE)
     {
-        this.Hashtag.setElementAt("UNDEFINE",0); // Par défaut une note est créé avec une HASHTAG à la valeur UNDEFINED 
-        this.setId(1); // L'identifiant de la première note est mis a 1 par défaut
+        this.Hashtag.setElementAt("UNDEFINE",0); // Par d�faut une note est cr�� avec une HASHTAG � la valeur UNDEFINED 
+        this.setId(1); // L'identifiant de la premi�re note est mis a 1 par d�faut
         try 
         {
             this.setTexte(TEXTE);
@@ -268,11 +244,11 @@ public class Note
             // Si absence de titre - Execption :
             if(this.titre.isEmpty()==true)
             {
-                throw new Titre_Vide("Vous avez oublié de donner un titre à votre document");
+                throw new Titre_Vide("Vous avez oubli� de donner un titre � votre document");
             }
         }
         // Modification de la variable globale gestion des erreurs :
-        // Cette variable est à disposition de ceux qui voudraient implémenter une 
+        // Cette variable est � disposition de ceux qui voudraient impl�menter une 
         // Message box avertissant l'utilisateur de sa mauvaise munipulation 
         catch(Note_Vide nv)
         {
@@ -284,10 +260,10 @@ public class Note
         }
     }
     
-    // Ce constructeur permettrat de crée une note à partir :
+    // Ce constructeur permettrat de cr�e une note � partir :
     //          - De son titre
     //          - Du texte qu'elle contient
-    //          - D'un vector de contenant tout les HASHTAG présents dans cette note 
+    //          - D'un vector de contenant tout les HASHTAG pr�sents dans cette note 
     //              ATENTION : CE N'EST PAS A MOI DE GERER L'OBTENTION DE CE VECTOR
     // RESTE A FAIRE : Gestion des ID 
     public Note(String TITRE, String TEXTE, Vector<String> HASHTAG_IN_NOTE)
@@ -309,7 +285,7 @@ public class Note
             // Si absence de titre - Execption :
             if(this.titre.isEmpty()==true)
             {
-                throw new Titre_Vide("Vous avez oublié de donner un titre à votre document");
+                throw new Titre_Vide("Vous avez oubli� de donner un titre � votre document");
             }
             
             // Si le HASHTAG_IN_NOTE vide - Execption :
@@ -319,7 +295,7 @@ public class Note
             }
         }
         // Modification de la variable globale gestion des erreurs :
-        // Cette variable est à disposition de ceux qui voudraient implémenter une 
+        // Cette variable est � disposition de ceux qui voudraient impl�menter une 
         // Message box avertissant l'utilisateur de sa mauvaise munipulation 
         catch(Note_Vide nv)
         {
@@ -331,7 +307,7 @@ public class Note
         }
         catch(HASHTAG_Vide hs)
         {
-            this.ERREUR_CREATION = this.ERREUR_CREATION + " " + "Aucun HASHTAG présent dans cette note";
+            this.ERREUR_CREATION = this.ERREUR_CREATION + " " + "Aucun HASHTAG pr�sent dans cette note";
         }    
     }
     
@@ -361,8 +337,8 @@ public class Note
     }
     
     // Mutateur pour Id : 
-    // doit être auto incrémentale ! pas de set de l'id de la note
-    // incrémenté dans le constructeur
+    // doit �tre auto incr�mentale ! pas de set de l'id de la note
+    // incr�ment� dans le constructeur
     private void setId(int Identifiant)
     {
         this.Id = Identifiant;
@@ -381,9 +357,9 @@ public class Note
     }
     
     // Mutateur pour Hastag :
-    // doit gérer un vector, sinon la on peux avoir que un seul hashtag à la fois .....
+    // doit g�rer un vector, sinon la on peux avoir que un seul hashtag � la fois .....
     // du coup faire un set et un remove
-    // le set ajoutera et le remove enlève (attention au exception, si le hashtag existe déja ou si il n'existe pas etc.)
+    // le set ajoutera et le remove enl�ve (attention au exception, si le hashtag existe d�ja ou si il n'existe pas etc.)
     private void setHastag(Vector<String> Has)
     {
         int i = 0;
@@ -394,7 +370,7 @@ public class Note
     }
    
     // Remplissage d'une note - UTILISATION FINALE :
-    // MAuvaise utilisation | doit être un constructeur et non une méthode simple
+    // MAuvaise utilisation | doit �tre un constructeur et non une m�thode simple
     public void remplir(String TITRE, String TEXT, Vector<String> HASHTAG, int ID)
     {
         this.setHastag(HASHTAG);
@@ -403,16 +379,16 @@ public class Note
         this.setTitre(TITRE);
     }
     
-    // CrÃ©ation du dossier dans lequel seront stockÃ©e les notes exportÃ©es :
+    // Création du dossier dans lequel seront stockée les notes exportées :
     private void creation_dossier_sauvegarde()
     {
         
     }
     
-    // Export d'une note au format dÃ©sirÃ© (XML, HTML, PDF) : 
+    // Export d'une note au format désiré (XML, HTML, PDF) : 
     public void export(String export_souhaite)
     {
-        // Chemain et nom du rÃ©pertoir oÃ¹ seront stockÃ©s les fichiers exportÃ©s :
+        // Chemain et nom du répertoir où seront stockés les fichiers exportés :
        
         if (export_souhaite == "PDF")
         {
@@ -420,207 +396,6 @@ public class Note
         }
         if (export_souhaite == "XML")
         {
-=======
-    private static Vector<String> Redondense_HASHTAG(Vector<String> VEC_A_TRIER)
-    { 
-        int i;
-        int cpt = 0;
-        
-        Vector INDEX;
-        INDEX = new Vector(1,1);
-        //INDEX.add(0);
-        
-        String tmp = VEC_A_TRIER.elementAt(0);
-        for(i=1;i<VEC_A_TRIER.size();i++)
-        {
-          if(VEC_A_TRIER.equals(tmp) == true) 
-           {
-              INDEX.add(i);
-           }
-          tmp = VEC_A_TRIER.elementAt(i);
-        }
-        for(i=1;i<INDEX.size();i++)
-        {
-             VEC_A_TRIER.removeElementAt((int)INDEX.elementAt(i-1));
-        }
-        
-        //return INDEX;
-        return VEC_A_TRIER;
-    }
-    
-    // Constructeur par défaut - Création d'une note à partir de sont TITRE et du TEXTE qu'elle contient :
-    // RESTE A FAIRE : Gestion des ID
-    public Note(String TITRE, String TEXTE)
-    {
-        this.Hashtag.setElementAt("UNDEFINE",0); // Par défaut une note est créé avec une HASHTAG à la valeur UNDEFINED 
-        this.setId(1); // L'identifiant de la première note est mis a 1 par défaut
-        try 
-        {
-            this.setTexte(TEXTE);
-            this.setTitre(TITRE);
-            
-            // Si texte vide - Execption 
-            if(this.text.isEmpty()==true)
-            {
-                throw new Note_Vide("La Note est vide");
-            }
-            
-            // Si absence de titre - Execption :
-            if(this.titre.isEmpty()==true)
-            {
-                throw new Titre_Vide("Vous avez oublié de donner un titre à votre document");
-            }
-        }
-        // Modification de la variable globale gestion des erreurs :
-        // Cette variable est à disposition de ceux qui voudraient implémenter une 
-        // Message box avertissant l'utilisateur de sa mauvaise munipulation 
-        catch(Note_Vide nv)
-        {
-            this.ERREUR_CREATION = this.ERREUR_CREATION + " " + "La note est vide";
-        }
-        catch(Titre_Vide tv)
-        {
-             this.ERREUR_CREATION = this.ERREUR_CREATION + " " + "La note est vide";
-        }
-    }
-    
-    // Ce constructeur permettrat de crée une note à partir :
-    //          - De son titre
-    //          - Du texte qu'elle contient
-    //          - D'un vector de contenant tout les HASHTAG présents dans cette note 
-    //              ATENTION : CE N'EST PAS A MOI DE GERER L'OBTENTION DE CE VECTOR
-    // RESTE A FAIRE : Gestion des ID 
-    public Note(String TITRE, String TEXTE, Vector<String> HASHTAG_IN_NOTE)
-    {
-        try 
-        {
-            this.setTexte(TEXTE);
-            this.setTitre(TITRE);
-            int taille = Redondense_HASHTAG(HASHTAG_IN_NOTE).size();
-            this.Hashtag = new Vector<String>(1,taille);
-            this.setHastag(Redondense_HASHTAG(HASHTAG_IN_NOTE));
-            
-            // Si texte vide - Execption 
-            if(this.text.isEmpty()==true)
-            {
-                throw new Note_Vide("La Note est vide");
-            }
-            
-            // Si absence de titre - Execption :
-            if(this.titre.isEmpty()==true)
-            {
-                throw new Titre_Vide("Vous avez oublié de donner un titre à votre document");
-            }
-            
-            // Si le HASHTAG_IN_NOTE vide - Execption :
-            if(HASHTAG_IN_NOTE.isEmpty()==true)
-            {
-                throw new HASHTAG_Vide("Aucun HASHTAG n'est présent dans votre texte");
-            }
-        }
-        // Modification de la variable globale gestion des erreurs :
-        // Cette variable est à disposition de ceux qui voudraient implémenter une 
-        // Message box avertissant l'utilisateur de sa mauvaise munipulation 
-        catch(Note_Vide nv)
-        {
-            this.ERREUR_CREATION = this.ERREUR_CREATION + " " + "La note est vide";
-        }
-        catch(Titre_Vide tv)
-        {
-             this.ERREUR_CREATION = this.ERREUR_CREATION + " " + "La note est vide";
-        }
-        catch(HASHTAG_Vide hs)
-        {
-            this.ERREUR_CREATION = this.ERREUR_CREATION + " " + "Aucun HASHTAG présent dans cette note";
-        }    
-    }
-    
-    
-    // Accesseur pour text :
-    public String getText()
-    {
-        return this.text;
-    }
-    
-    // Accesseur pour titre :
-    public String getTitre()
-    {
-        return this.titre;
-    }
-    
-    // Accesseur pour Hastag : 
-    public Vector getHastag()
-    {
-        return this.Hashtag;
-    }
-    
-    // Accesseur pour Id : 
-    public int getId()
-    {
-        return this.Id;
-    }
-    
-    // Mutateur pour Id : 
-    // doit être auto incrémentale ! pas de set de l'id de la note
-    // incrémenté dans le constructeur
-    private void setId(int Identifiant)
-    {
-        this.Id = Identifiant;
-    }
-    
-    // Mutateur pour Text : 
-    private void setTexte(String Text_de_la_note)
-    {
-        this.text = Text_de_la_note;
-    }
-    
-    // Mutateur pour titre :
-    private void setTitre(String Titre_Note)
-    {
-        this.titre = Titre_Note;
-    }
-    
-    // Mutateur pour Hastag :
-    // doit gérer un vector, sinon la on peux avoir que un seul hashtag à la fois .....
-    // du coup faire un set et un remove
-    // le set ajoutera et le remove enlève (attention au exception, si le hashtag existe déja ou si il n'existe pas etc.)
-    private void setHastag(Vector<String> Has)
-    {
-        int i = 0;
-        for(i=0;i<Has.size();i++)
-        {
-            this.Hashtag.add(Has.elementAt(i));
-        }
-    }
-   
-    // Remplissage d'une note - UTILISATION FINALE :
-    // MAuvaise utilisation | doit être un constructeur et non une méthode simple
-    public void remplir(String TITRE, String TEXT, Vector<String> HASHTAG, int ID)
-    {
-        this.setHastag(HASHTAG);
-        this.setId(ID);
-        this.setTexte(TEXT);
-        this.setTitre(TITRE);
-    }
-    
-    // CrÃ©ation du dossier dans lequel seront stockÃ©e les notes exportÃ©es :
-    private void creation_dossier_sauvegarde()
-    {
-        
-    }
-    
-    // Export d'une note au format dÃ©sirÃ© (XML, HTML, PDF) : 
-    public void export(String export_souhaite)
-    {
-        // Chemain et nom du rÃ©pertoir oÃ¹ seront stockÃ©s les fichiers exportÃ©s :
-       
-        if (export_souhaite == "PDF")
-        {
-            
-        }
-        if (export_souhaite == "XML")
-        {
->>>>>>> 8e46a26321c1552285a65a69a1adba3956383e55
                     
         }
         if (export_souhaite == "HTML")
@@ -629,7 +404,7 @@ public class Note
         }
     }
     
-    // A dégager, pour  faire des test on met des constructeur qu'on appel dans un void main dans la classe de test
+    // A d�gager, pour  faire des test on met des constructeur qu'on appel dans un void main dans la classe de test
     public void remplir_TESTS()
     {
         Scanner sc = new Scanner(System.in);
@@ -641,7 +416,6 @@ public class Note
         String HASHTAG = sc.nextLine();
         System.out.println("Entrer l'identifiant de la note :\n");
         int ID = sc.nextInt();    
-        this.setHastag(HASHTAG);
         this.setId(ID);
         this.setTexte(TEXT);
         this.setTitre(TITRE);
