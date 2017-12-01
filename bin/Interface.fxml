@@ -39,7 +39,7 @@
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <Label text="Label" />
+            <Label text="SA3I INSA CVL" />
          </children>
       </HBox>
    </bottom>
@@ -55,24 +55,9 @@
       </BorderPane>
    </left>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="editeur" style="-fx-padding:20 20 0 20" spacing="10" BorderPane.alignment="CENTER">
          <children>
-            <HBox>
-               <children>
-                  <Region maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="250.0" promptText="Note Title" />
-                  <Region maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="8.0" top="8.0" />
-               </VBox.margin>
-            </HBox>
-        			<VBox fx:id="editeur" maxHeight="-Infinity" prefHeight="500.0" prefWidth="360.0">
-                     <children>
-                       
-                     </children>
-                  </VBox>
-
+            <TextField style="-fx-margin: 5px;" minHeight="30" prefHeight="30" promptText="Note Title" />
          </children>
       </VBox>
    </center>

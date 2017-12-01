@@ -16,7 +16,7 @@ public class Main extends Application {
 			VBox contenaire = (VBox) loader.getNamespace().get("editeur");
 			Editor abdellah = new Editor();
 			contenaire.getChildren().add(abdellah);
-			primaryStage.setTitle("Hello World");
+			primaryStage.setTitle("JNotes - 0.1V");
 			primaryStage.setScene(new Scene(root, 1280, 720));
 			primaryStage.show();
 			

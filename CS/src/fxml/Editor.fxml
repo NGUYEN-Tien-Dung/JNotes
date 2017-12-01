@@ -9,7 +9,7 @@
 <?import javafx.scene.button.*?>
 <?import javafx.scene.text.*?>
 
-<fx:root fx:id="main" type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml">
+<fx:root VBox.vgrow="ALWAYS" fx:id="main" type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml">
 
 
 <HTMLEditor visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" style="-fx-font-family: Segoe Ui; -fx-font-size:13;" fx:id="htmlEditor"/>
