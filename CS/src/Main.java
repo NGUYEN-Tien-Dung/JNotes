@@ -13,7 +13,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 			FXMLLoader  loader = new FXMLLoader(getClass().getResource("Interface.fxml"));
 			Parent root = loader.load();
-			VBox contenaire = (VBox) loader.getNamespace().get("test");
+			VBox contenaire = (VBox) loader.getNamespace().get("editeur");
 			Editor abdellah = new Editor();
 			contenaire.getChildren().add(abdellah);
 			primaryStage.setTitle("Hello World");

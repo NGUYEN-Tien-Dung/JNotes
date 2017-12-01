@@ -37,7 +37,10 @@ public class Editor extends AnchorPane  {
 	private Button showhtml;
 	@FXML
 	private TextArea markdownEditor;
-
+	@FXML 
+	private AnchorPane main;
+	
+	
 	private String markdownelements[] = {"#markdownEditor","#showhtml"};
 	private String htmlelements[] = {"#htmlEditor","#showmarkdown"};
 	public Editor() throws IOException {
@@ -45,7 +48,7 @@ public class Editor extends AnchorPane  {
 			"/fxml/Editor.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
-		fxmlLoader.load();
+		fxmlLoader.load();	
 		showhtml.setOnAction((event) -> {
 			String htmlRoot = "<body><font face=\"Segoe Ui\"> " + markdownEditor.getText() + "</font face></body></html>";
 			htmlEditor.setHtmlText(htmlRoot);
