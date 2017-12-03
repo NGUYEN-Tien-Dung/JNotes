@@ -66,7 +66,7 @@ public class Hashtag {
 		}
 		logger.info("Hashtag créé : " + this.getNom() + "(" + IdNote + ")");
 	}
-	
+	 
 
 	/**
 	 * Accesseur de Nom
