@@ -1,9 +1,14 @@
+/**
+*@author Tien Dung NGUYEN
+*/
+
 This .txt file is subject to change and add contents
 Reference to DomHelper and NotesDOM class for method details
 pls feel free to add infos to this file without deleting original contents to compare changes
 
-Note :  idCount, noteArrayList are instance variable in app Main class 
-	all fxml controller class must extends this Main class to use and modify these variable
+
+NB :    idCount, noteArrayList are instance variables in app Main class 
+	    all fxml controller classes must extends this Main class to use and modify these variables
 
 - Create new note by mouse clicking on context menu's element or a shortcut New Note
        On event listener (in fxml controller class), we're gonna : 
