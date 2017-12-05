@@ -14,9 +14,8 @@ NB :    idCount, noteArrayList are instance variables in app Main class
        On event listener (in fxml controller class), we're gonna : 
       + Create a Note object :Note note = new Note()
         then add this note object to an ArrayList of Note object named for example noteArrayList 
-	List<Note> noteArrayList = new ArrayList<Note>(); 
-	this noteArrayList is an instance variable on App Main class
-      + From Note object, create XML file by using Serializers(or JAXB)
+ 	    List<Note> noteArrayList = new ArrayList<Note>(); 
+	  + From Note object, create XML file by using Serializers(or JAXB)
       + Use static method Add(String idNote) on class NotesDOM to add new <Note> </Note> to XML file
       + Set idCount++; then idNote can be retrieved and set element <id></id> on XML file 
 	This idCount variable is also used to set indexes of noteArrayList with 0-based when adding 
@@ -34,3 +33,16 @@ NB :    idCount, noteArrayList are instance variables in app Main class
 	Delete corresponding Note object on noteArrayList and re-organize ArrayList indexes
       + Call method deleteNote() from class NotesDOM to delete Note Content on XML file 
   
+  
+- static variables in Main class:    static int idCount = 0;
+				     				 static String idNote;
+				                     List<Note> noteArrayList = new ArrayList<Note>();	
+- in New Note controller class :
+  Main.idCount++; //increase static variable idCount one unit
+  Main.idNote = 'N' + String.valueof(Main.idCount); //set idNote value, used as parameter in other methods
+  Note note = new Note();
+  note.setId(Main.idCount);
+  noteArrayList.add(Main.idCount-1,note); //Add note object to noteArrayList at specific index 
+  NotesDOM.Add(Main.idNote); //create <Note></Note> element on XML file
+- in Delete Note controller class :
+- Click on Note Label :
